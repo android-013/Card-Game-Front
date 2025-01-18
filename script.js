@@ -12,7 +12,6 @@ function shuffle(array) {
 
 shuffle(items);
 
-
 let firstCard = null;
 let secondCard = null;
 
