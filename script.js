@@ -23,7 +23,6 @@ function shuffle(array) {
 
 shuffle(items);
 
-
 function flipCard(card, id) {
     if (isFlipping || card.classList.contains('done') || card.innerText) return;
 
