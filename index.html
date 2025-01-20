@@ -9,6 +9,15 @@
 </head>
 <body>
     <div class="container">
+        <div class="game-info">
+            <div>
+                <p>The Attempts: <span id="attempts">0</span></p>
+            </div>
+            <div>
+                <p>Pairs Solved: <span id="pairs-solved">0</span></p>
+            </div>
+        </div>
+        
         <div class="row">
             <div id="i1" class="item" onclick="flipCard(this, 1)"></div>
             <div id="i2" class="item" onclick="flipCard(this, 2)"></div>
@@ -37,6 +46,7 @@
             <div id="i19" class="item" onclick="flipCard(this, 19)"></div>
             <div id="i20" class="item" onclick="flipCard(this, 20)"></div>
         </div>
+        <button id="restart-button" onclick="restartGame()">Restart</button>
     </div>   
 </body>
 </html>

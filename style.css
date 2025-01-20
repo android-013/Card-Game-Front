@@ -1,3 +1,45 @@
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between rectangles */
+    margin: 20px 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.game-info p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.game-info div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #007bff; /* Light background color */
+}
+
+#restart-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background-color: #005cbd;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +78,7 @@
     cursor: pointer;
     transition: 0.3s;
     font-weight: bold;
-    color: rgba(0, 0, 0,);
+    color: rgba(0, 0, 0, 0.8);
 
     width: 5rem;
     height: 8rem;
@@ -47,4 +89,37 @@
 
 .done {
     background: rgb(255, 255, 255);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .item {
+        width: 4rem;
+        height: 6rem;
+        font-size: 1.5rem;
+    }
+
+    .container {
+        gap: 0.5rem;
+    }
+
+    .row {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 3rem;
+        height: 5rem;
+        font-size: 1.2rem;
+    }
+
+    .container {
+        gap: 0.3rem;
+    }
+
+    .row {
+        gap: 0.3rem;
+    }
 }
