@@ -1,106 +1,124 @@
 import { EMOJIS as a, TOTAL_PAIRS as b } from "./constants.js";
 import { shuffle as c } from "./utils.js";
+import { a as d, b as e, c as f, d as g } from "./animations.js";
 
-export function initGame(d) {
-    const e = [...a];
-    c(e);
+export function initGame(h) {
+    const i = [...a];
+    c(i);
 
-    const f = { a: null, b: null, x: 0, y: 0, k: false };
+    const j = { a: null, b: null, x: 0, y: 0, k: false };
 
-    function g() {
-        d.attemptsEl.textContent = "" + f.x;
-        d.pairsEl.textContent = "" + f.y;
+    function l() {
+        h.attemptsEl.textContent = "" + j.x;
+        h.pairsEl.textContent = "" + j.y;
     }
 
-    function h() {
-        d.cards.forEach(m => {
-        m.textContent = "";
-        m.classList.remove("done");
+    function m() {
+        h.cards.forEach(s => {
+        s.textContent = "";
+        s.classList.remove("done");
         });
     }
 
-    function i(m) {
-        const n = m.dataset.index | 0;
-        m.textContent = e[n];
+    function n(s) {
+        const t = s.dataset.index | 0;
+        s.textContent = i[t];
+        d(s);
     }
 
-    function j(m) {
-        m.textContent = "";
+    function o(s) {
+        s.textContent = "";
     }
 
-    function l(m) {
-        return m.classList.contains("done");
+    function p(s) {
+        return s.classList.contains("done");
     }
 
-    function o() {
-        f.a = null;
-        f.b = null;
+    function q() {
+        j.a = null;
+        j.b = null;
     }
 
-    function p() {
-        if (f.y === b) {
-        d.restartBtn.textContent = "Play Again";
+    function r() {
+        if (j.y === b) {
+        h.restartBtn.textContent = "Play Again";
         alert("Congratulations! You solved all pairs.");
         }
     }
 
-    function q(m) {
-        if (f.k) return;
-        if (!m || l(m)) return;
-        if (m.textContent) return;
+    function u(s) {
+        if (j.k) return;
+        if (!s || p(s)) return;
+        if (s.textContent) return;
 
-        i(m);
+        n(s);
 
-        if (f.a === null) {
-        f.a = m;
+        if (j.a === null) {
+        j.a = s;
         return;
         }
 
-        f.b = m;
-        f.k = true;
-        f.x++;
-        g();
+        j.b = s;
+        j.k = true;
 
-        const r = f.a;
-        const s = f.b;
+        j.x++;
+        l();
 
-        if (r.textContent === s.textContent) {
+        const v = j.a;
+        const w = j.b;
+
+        if (v.textContent === w.textContent) {
         setTimeout(() => {
-            r.classList.add("done");
-            s.classList.add("done");
-            f.y++;
-            g();
-            o();
-            f.k = false;
-            p();
+            v.classList.add("done");
+            w.classList.add("done");
+
+            f(v);
+            f(w);
+
+            j.y++;
+            l();
+
+            q();
+            j.k = false;
+
+            r();
         }, 500);
         } else {
+        e(v);
+        e(w);
+
         setTimeout(() => {
-            j(r);
-            j(s);
-            o();
-            f.k = false;
+            o(v);
+            o(w);
+
+            q();
+            j.k = false;
         }, 1000);
         }
     }
 
-    function t() {
-        c(e);
-        h();
-        f.a = null;
-        f.b = null;
-        f.x = 0;
-        f.y = 0;
-        f.k = false;
-        d.restartBtn.textContent = "Restart";
-        g();
+    function x() {
+        c(i);
+        m();
+        g(h.board);
+
+        j.a = null;
+        j.b = null;
+        j.x = 0;
+        j.y = 0;
+        j.k = false;
+
+        h.restartBtn.textContent = "Restart";
+        l();
     }
 
-    d.board.addEventListener("click", (u) => {
-        const v = u.target.closest(".item");
-        if (!v || !d.board.contains(v)) return;
-        q(v);
+    h.board.addEventListener("click", (y) => {
+        const z = y.target.closest(".item");
+        if (!z || !h.board.contains(z)) return;
+        u(z);
     });
-    d.restartBtn.addEventListener("click", t);
-    g();
+
+    h.restartBtn.addEventListener("click", x);
+
+    l();
     }

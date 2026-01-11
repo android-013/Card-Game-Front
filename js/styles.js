@@ -11,6 +11,7 @@ export function injectStyles() {
         .container{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;background:linear-gradient(180deg,#686de0,#130f40);width:100%;gap:1rem;transition:all .3s;user-select:none}
         .row{margin-top:.5rem;margin-bottom:.5rem;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:1rem;transition:all .3s}
         .item{display:flex;justify-content:center;align-items:center;background:linear-gradient(180deg,#7ed6df,#22a6b3);border-radius:1rem;box-shadow:0 0 10px rgba(0,0,0,.1);cursor:pointer;transition:.3s;font-weight:700;color:rgba(0,0,0,.8);width:5rem;height:8rem;font-size:2rem;transition:all .3s}
+        .item{ transform-style:preserve-3d; backface-visibility:hidden; }
         .done{background:#fff}
 
         @media (max-width:768px){
